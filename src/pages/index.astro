@@ -1,0 +1,264 @@
+---
+import Base from '../layouts/Base.astro';
+
+const ctaHref = 'mailto:request@dfmabuddy.com?subject=DFMA%20Buddy%20%E2%80%94%20request%20access';
+const repoHref = 'https://github.com/Deerajkumar-design/DFM-Agent';
+
+const features = [
+  {
+    title: 'Real-time DFM detection',
+    body: '16 sheet-metal rules covering bend radius, hole placement, flange length, slot geometry, and parallel-bend interference. Runs in seconds against the live model.',
+    icon: 'radar',
+  },
+  {
+    title: 'One-click auto-fix',
+    body: 'Eight mechanical fix operations applied directly through the SolidWorks API — move a hole, grow a bend radius, extend a flange, suppress a feature.',
+    icon: 'wand',
+  },
+  {
+    title: 'In-CAD preview',
+    body: 'Each violation becomes a card with a Show in model button that selects and zooms to the offending feature. Toggle off the fixes you want to skip.',
+    icon: 'eye',
+  },
+  {
+    title: 'Cross-rule planning',
+    body: 'The planner orders ops correctly — extends the flange before growing the bend, recomputes hole-to-bend distance with the post-fix radius, reverts cleanly when SW rejects an edit.',
+    icon: 'layers',
+  },
+];
+
+const steps = [
+  {
+    n: '01',
+    title: 'Analyse',
+    body: 'Click Analyse in the task pane. The add-in extracts geometry, ships it to a local Python service, and returns every rule violation it finds.',
+  },
+  {
+    n: '02',
+    title: 'Preview',
+    body: 'Each issue lands as a card — severity, plain-English explanation, proposed fix, and a Show in model jump. Untick anything you want to skip.',
+  },
+  {
+    n: '03',
+    title: 'Apply',
+    body: 'Click Apply N accepted fixes. The executor edits the model through the SW API and re-analyses. Iterate until the part is manufacturable.',
+  },
+];
+---
+
+<Base>
+  <!-- Nav -->
+  <header class="border-b border-slate-100">
+    <div class="mx-auto max-w-content px-6 py-5 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-semibold tracking-tight">
+        <span class="inline-block h-6 w-6 rounded-md bg-accent" aria-hidden="true"></span>
+        <span>DFMA Buddy</span>
+      </a>
+      <nav class="flex items-center gap-6 text-sm">
+        <a href="#features" class="hidden sm:inline text-slate-600 hover:text-slate-900">Features</a>
+        <a href="#how" class="hidden sm:inline text-slate-600 hover:text-slate-900">How it works</a>
+        <a href={repoHref} target="_blank" rel="noopener" class="hidden sm:inline text-slate-600 hover:text-slate-900">GitHub</a>
+        <a
+          href={ctaHref}
+          class="inline-flex items-center rounded-md bg-slate-900 px-3.5 py-2 text-white text-sm font-medium hover:bg-slate-800 transition-colors"
+        >
+          Request access
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="mx-auto max-w-content px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-6">
+        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
+          <span class="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
+          SolidWorks add-in &mdash; private beta
+        </span>
+        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05]">
+          Manufacturability review,
+          <span class="block text-accent">in your CAD session.</span>
+        </h1>
+        <p class="mt-6 text-lg text-slate-600 max-w-xl leading-relaxed">
+          DFMA Buddy catches DFM issues while you&rsquo;re designing &mdash; and fixes them in one click.
+          No more weeks of back-and-forth with the shop floor.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a
+            href={ctaHref}
+            class="inline-flex items-center justify-center rounded-md bg-accent px-5 py-3 text-white text-base font-medium hover:bg-accent-hover transition-colors shadow-sm"
+          >
+            Request access
+            <svg class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638l-3.044-2.917a.75.75 0 1 1 1.038-1.082l4.5 4.31a.75.75 0 0 1 0 1.082l-4.5 4.31a.75.75 0 1 1-1.038-1.082L14.388 10.75H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" /></svg>
+          </a>
+          <a
+            href="#how"
+            class="inline-flex items-center justify-center rounded-md border border-slate-200 bg-white px-5 py-3 text-slate-700 text-base font-medium hover:border-slate-300 hover:text-slate-900 transition-colors"
+          >
+            See how it works
+          </a>
+        </div>
+        <p class="mt-5 text-sm text-slate-500">
+          Sheet metal today. CNC, casting, and injection molding next.
+        </p>
+      </div>
+
+      <div class="lg:col-span-6">
+        <div class="relative">
+          <div class="absolute -inset-4 sm:-inset-6 rounded-2xl bg-gradient-to-br from-blue-100/60 via-slate-100/60 to-transparent blur-xl" aria-hidden="true"></div>
+          <div class="relative rounded-xl border border-slate-200 bg-slate-100 shadow-sm overflow-hidden aspect-[4/3]">
+            <div class="absolute inset-0 flex items-center justify-center text-slate-400 text-sm">
+              <div class="text-center">
+                <div class="mx-auto mb-3 h-10 w-10 rounded-md bg-white border border-slate-200 flex items-center justify-center">
+                  <svg class="h-5 w-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M1 5.25A2.25 2.25 0 0 1 3.25 3h13.5A2.25 2.25 0 0 1 19 5.25v9.5A2.25 2.25 0 0 1 16.75 17H3.25A2.25 2.25 0 0 1 1 14.75v-9.5Zm1.5 5.81v3.69c0 .414.336.75.75.75h13.5a.75.75 0 0 0 .75-.75v-2.69l-2.22-2.219a.75.75 0 0 0-1.06 0l-1.91 1.909.47.47a.75.75 0 1 1-1.06 1.06L6.53 8.091a.75.75 0 0 0-1.06 0L2.5 11.06Z" clip-rule="evenodd" /></svg>
+                </div>
+                <div class="font-medium text-slate-500">screenshot here</div>
+                <div class="mt-1 text-xs text-slate-400">/public/screenshot-pane.png</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="border-t border-slate-100 bg-slate-50/50">
+    <div class="mx-auto max-w-content px-6 py-20 sm:py-24">
+      <div class="max-w-3xl">
+        <p class="text-sm font-medium text-accent uppercase tracking-wider">The problem</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">
+          Designers learn their part isn&rsquo;t manufacturable <span class="text-slate-500">after</span> they hand the CAD file off.
+        </h2>
+        <p class="mt-6 text-lg text-slate-600 leading-relaxed">
+          The shop comes back days or weeks later with &ldquo;this radius is too tight&rdquo; or &ldquo;this hole is too close to the bend.&rdquo;
+          By then the design is half-locked-in and the fix is a multi-day round-trip. DFM tools today are services, not tools &mdash;
+          Fictiv, Xometry, and contract design houses do this manually for you, slowly, after upload. We bring the review
+          <strong class="text-slate-900 font-semibold"> into the CAD session</strong>, run it in seconds, and apply mechanical fixes in one click.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="mx-auto max-w-content px-6 py-20 sm:py-24">
+    <div class="max-w-2xl">
+      <p class="text-sm font-medium text-accent uppercase tracking-wider">What works today</p>
+      <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">
+        A SolidWorks task-pane add-in that talks to a local Python service.
+      </h2>
+    </div>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+      {features.map((f) => (
+        <div class="rounded-xl border border-slate-200 bg-white p-6 hover:border-slate-300 transition-colors">
+          <div class="flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-accent">
+            {f.icon === 'radar' && (
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.07 4.93A10 10 0 0 0 6.99 3.34"/><path d="M4 6h.01"/><path d="M2.29 9.62A10 10 0 1 0 21.31 8.35"/><path d="M16.24 7.76A6 6 0 1 0 8 18"/><path d="M12 18h.01"/><path d="M17.99 11.66A6 6 0 0 1 15.77 16.67"/><circle cx="12" cy="12" r="2"/><path d="m13.41 10.59 5.66-5.66"/></svg>
+            )}
+            {f.icon === 'wand' && (
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4V2"/><path d="M15 16v-2"/><path d="M8 9h2"/><path d="M20 9h2"/><path d="M17.8 11.8 19 13"/><path d="M15 9h.01"/><path d="M17.8 6.2 19 5"/><path d="m3 21 9-9"/><path d="M12.2 6.2 11 5"/></svg>
+            )}
+            {f.icon === 'eye' && (
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            )}
+            {f.icon === 'layers' && (
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
+            )}
+          </div>
+          <h3 class="mt-5 text-lg font-semibold text-slate-900">{f.title}</h3>
+          <p class="mt-2 text-slate-600 leading-relaxed">{f.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="border-t border-slate-100 bg-slate-50/50">
+    <div class="mx-auto max-w-content px-6 py-20 sm:py-24">
+      <div class="max-w-2xl">
+        <p class="text-sm font-medium text-accent uppercase tracking-wider">How it works</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">Three steps. Same task pane.</h2>
+      </div>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {steps.map((s) => (
+          <div class="relative rounded-xl border border-slate-200 bg-white p-6">
+            <div class="text-sm font-mono text-accent">{s.n}</div>
+            <h3 class="mt-3 text-lg font-semibold text-slate-900">{s.title}</h3>
+            <p class="mt-2 text-slate-600 leading-relaxed">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section class="mx-auto max-w-content px-6 py-20 sm:py-24">
+    <div class="grid md:grid-cols-12 gap-10 items-start">
+      <div class="md:col-span-4">
+        <p class="text-sm font-medium text-accent uppercase tracking-wider">Where it&rsquo;s going</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">Roadmap</h2>
+      </div>
+      <ul class="md:col-span-8 space-y-4 text-lg text-slate-700">
+        <li class="flex items-start gap-3">
+          <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0"></span>
+          Sheet metal today
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+          CNC, casting, injection molding next
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+          Multi-CAD: Onshape, Inventor, Fusion
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
+          Assembly-level DFMA: parts-count, fastener consolidation, mate analysis
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="border-t border-slate-100">
+    <div class="mx-auto max-w-content px-6 py-20 sm:py-24">
+      <div class="rounded-2xl bg-gradient-to-br from-blue-50 via-white to-slate-50 border border-slate-200 px-8 py-14 sm:px-14 sm:py-20 text-center">
+        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight">Try it on a part this week.</h2>
+        <p class="mt-4 text-lg text-slate-600 max-w-xl mx-auto">
+          We&rsquo;re onboarding a small group of design engineers running SolidWorks 2020+. Reach out and we&rsquo;ll send install instructions.
+        </p>
+        <div class="mt-8">
+          <a
+            href={ctaHref}
+            class="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3.5 text-white text-base font-medium hover:bg-accent-hover transition-colors shadow-sm"
+          >
+            Request access
+            <svg class="ml-2 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638l-3.044-2.917a.75.75 0 1 1 1.038-1.082l4.5 4.31a.75.75 0 0 1 0 1.082l-4.5 4.31a.75.75 0 1 1-1.038-1.082L14.388 10.75H3.75A.75.75 0 0 1 3 10Z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-slate-500">Or email <a class="underline hover:text-slate-700" href={ctaHref}>request@dfmabuddy.com</a> directly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-100">
+    <div class="mx-auto max-w-content px-6 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-slate-500">
+      <div class="flex items-center gap-2">
+        <span class="inline-block h-4 w-4 rounded bg-accent" aria-hidden="true"></span>
+        <span class="font-medium text-slate-700">DFMA Buddy</span>
+        <span class="ml-2">&copy; {new Date().getFullYear()}</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href={repoHref} target="_blank" rel="noopener" class="hover:text-slate-700 inline-flex items-center gap-1.5">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.475 2 2 6.475 2 12c0 4.425 2.863 8.163 6.838 9.488.5.087.687-.213.687-.476 0-.237-.013-1.024-.013-1.862-2.512.463-3.162-.612-3.362-1.175-.113-.288-.6-1.175-1.025-1.413-.35-.187-.85-.65-.013-.662.788-.013 1.35.725 1.538 1.025.9 1.512 2.337 1.087 2.912.825.088-.65.35-1.087.638-1.337-2.225-.25-4.55-1.113-4.55-4.938 0-1.088.387-1.987 1.025-2.688-.1-.25-.45-1.275.1-2.65 0 0 .837-.262 2.75 1.026A9.28 9.28 0 0 1 12 6.837c.85.004 1.7.114 2.5.337 1.912-1.3 2.75-1.024 2.75-1.024.55 1.375.2 2.4.1 2.65.637.7 1.025 1.587 1.025 2.687 0 3.838-2.337 4.688-4.562 4.938.362.312.675.912.675 1.85 0 1.337-.013 2.412-.013 2.75 0 .263.188.575.688.475A10.005 10.005 0 0 0 22 12c0-5.525-4.475-10-10-10Z" clip-rule="evenodd"/></svg>
+          GitHub
+        </a>
+        <a href={ctaHref} class="hover:text-slate-700">Contact</a>
+      </div>
+    </div>
+  </footer>
+</Base>
