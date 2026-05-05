@@ -1,9 +1,6 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
-  site: 'https://deerajkumar-design.github.io',
-  base: '/DFMA-website/',
+  site: 'https://FabReady.github.io',
+  base: '/dfma-buddy-site',
 });
