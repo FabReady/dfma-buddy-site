@@ -5,12 +5,14 @@ export interface Props {
 }
 
 const {
-  title = 'DFMA Buddy — Manufacturability review, in your CAD session',
+  title = 'FabReady — Manufacturability review, in your CAD session',
   description = 'A SOLIDWORKS add-in that catches DFM issues while you design and fixes them in one click. No more weeks of back-and-forth with the shop floor.',
 } = Astro.props;
 
-const ogImage = new URL('/og.png', Astro.site ?? 'https://dfmabuddy.com').toString();
-const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://dfmabuddy.com').toString();
+const base = import.meta.env.BASE_URL;
+const siteUrl = Astro.site ?? new URL('https://deerajkumar-design.github.io');
+const ogImage = new URL(`${base}og.png`, siteUrl).toString();
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
 ---
 
 <!doctype html>
@@ -19,12 +21,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://dfmabuddy.c
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <link rel="canonical" href={canonical} />
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#2563EB" />
+    <meta name="theme-color" content="#F59E0B" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -53,7 +55,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://dfmabuddy.c
     text-rendering: optimizeLegibility;
   }
   :focus-visible {
-    outline: 2px solid #2563eb;
+    outline: 2px solid #F59E0B;
     outline-offset: 2px;
     border-radius: 4px;
   }

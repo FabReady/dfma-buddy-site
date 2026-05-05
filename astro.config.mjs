@@ -4,5 +4,6 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://dfmabuddy.com',
+  site: 'https://deerajkumar-design.github.io',
+  base: '/DFMA-website/',
 });

@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const ctaHref = 'mailto:request@dfmabuddy.com?subject=DFMA%20Buddy%20%E2%80%94%20request%20access';
+const base = import.meta.env.BASE_URL;
+const ctaHref = 'mailto:request@dfmabuddy.com?subject=FabReady%20%E2%80%94%20request%20access';
 const repoHref = 'https://github.com/Deerajkumar-design/DFM-Agent';
 
 const features = [
@@ -50,14 +51,12 @@ const steps = [
   <!-- Nav -->
   <header class="border-b border-slate-100">
     <div class="mx-auto max-w-content px-6 py-5 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2 font-semibold tracking-tight">
-        <span class="inline-block h-6 w-6 rounded-md bg-accent" aria-hidden="true"></span>
-        <span>DFMA Buddy</span>
+      <a href="/" class="flex items-center" aria-label="FabReady">
+        <img src={`${base}logo.png`} alt="FabReady" class="h-9 w-auto" width="1172" height="296" />
       </a>
       <nav class="flex items-center gap-6 text-sm">
         <a href="#features" class="hidden sm:inline text-slate-600 hover:text-slate-900">Features</a>
         <a href="#how" class="hidden sm:inline text-slate-600 hover:text-slate-900">How it works</a>
-        <a href={repoHref} target="_blank" rel="noopener" class="hidden sm:inline text-slate-600 hover:text-slate-900">GitHub</a>
         <a
           href={ctaHref}
           class="inline-flex items-center rounded-md bg-slate-900 px-3.5 py-2 text-white text-sm font-medium hover:bg-slate-800 transition-colors"
@@ -72,18 +71,10 @@ const steps = [
   <section class="mx-auto max-w-content px-6 pt-20 pb-16 sm:pt-28 sm:pb-24">
     <div class="grid lg:grid-cols-12 gap-12 items-center">
       <div class="lg:col-span-6">
-        <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">
-          <span class="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
-          SolidWorks add-in &mdash; private beta
-        </span>
-        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05]">
-          Manufacturability review,
-          <span class="block text-accent">in your CAD session.</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05]">
+          AI agents that understand CAD
+          <span class="block text-accent">and autonomously optimize designs for manufacturing.</span>
         </h1>
-        <p class="mt-6 text-lg text-slate-600 max-w-xl leading-relaxed">
-          DFMA Buddy catches DFM issues while you&rsquo;re designing &mdash; and fixes them in one click.
-          No more weeks of back-and-forth with the shop floor.
-        </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a
             href={ctaHref}
@@ -99,14 +90,11 @@ const steps = [
             See how it works
           </a>
         </div>
-        <p class="mt-5 text-sm text-slate-500">
-          Sheet metal today. CNC, casting, and injection molding next.
-        </p>
       </div>
 
       <div class="lg:col-span-6">
         <div class="relative">
-          <div class="absolute -inset-4 sm:-inset-6 rounded-2xl bg-gradient-to-br from-blue-100/60 via-slate-100/60 to-transparent blur-xl" aria-hidden="true"></div>
+          <div class="absolute -inset-4 sm:-inset-6 rounded-2xl bg-gradient-to-br from-amber-100/60 via-slate-100/60 to-transparent blur-xl" aria-hidden="true"></div>
           <div class="relative rounded-xl border border-slate-200 bg-slate-100 shadow-sm overflow-hidden aspect-[4/3]">
             <div class="absolute inset-0 flex items-center justify-center text-slate-400 text-sm">
               <div class="text-center">
@@ -123,37 +111,19 @@ const steps = [
     </div>
   </section>
 
-  <!-- Problem -->
-  <section class="border-t border-slate-100 bg-slate-50/50">
-    <div class="mx-auto max-w-content px-6 py-20 sm:py-24">
-      <div class="max-w-3xl">
-        <p class="text-sm font-medium text-accent uppercase tracking-wider">The problem</p>
-        <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight leading-tight">
-          Designers learn their part isn&rsquo;t manufacturable <span class="text-slate-500">after</span> they hand the CAD file off.
-        </h2>
-        <p class="mt-6 text-lg text-slate-600 leading-relaxed">
-          The shop comes back days or weeks later with &ldquo;this radius is too tight&rdquo; or &ldquo;this hole is too close to the bend.&rdquo;
-          By then the design is half-locked-in and the fix is a multi-day round-trip. DFM tools today are services, not tools &mdash;
-          Fictiv, Xometry, and contract design houses do this manually for you, slowly, after upload. We bring the review
-          <strong class="text-slate-900 font-semibold"> into the CAD session</strong>, run it in seconds, and apply mechanical fixes in one click.
-        </p>
-      </div>
-    </div>
-  </section>
-
   <!-- Features -->
   <section id="features" class="mx-auto max-w-content px-6 py-20 sm:py-24">
     <div class="max-w-2xl">
-      <p class="text-sm font-medium text-accent uppercase tracking-wider">What works today</p>
+      <p class="text-sm font-medium text-accent uppercase tracking-wider">Features</p>
       <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">
-        A SolidWorks task-pane add-in that talks to a local Python service.
+        Four ways the agent makes your CAD manufacture-ready.
       </h2>
     </div>
 
     <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
       {features.map((f) => (
         <div class="rounded-xl border border-slate-200 bg-white p-6 hover:border-slate-300 transition-colors">
-          <div class="flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-accent">
+          <div class="flex h-10 w-10 items-center justify-center rounded-md bg-amber-50 text-accent">
             {f.icon === 'radar' && (
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.07 4.93A10 10 0 0 0 6.99 3.34"/><path d="M4 6h.01"/><path d="M2.29 9.62A10 10 0 1 0 21.31 8.35"/><path d="M16.24 7.76A6 6 0 1 0 8 18"/><path d="M12 18h.01"/><path d="M17.99 11.66A6 6 0 0 1 15.77 16.67"/><circle cx="12" cy="12" r="2"/><path d="m13.41 10.59 5.66-5.66"/></svg>
             )}
@@ -177,55 +147,42 @@ const steps = [
   <!-- How it works -->
   <section id="how" class="border-t border-slate-100 bg-slate-50/50">
     <div class="mx-auto max-w-content px-6 py-20 sm:py-24">
-      <div class="max-w-2xl">
+      <div class="max-w-3xl mb-16 sm:mb-24">
         <p class="text-sm font-medium text-accent uppercase tracking-wider">How it works</p>
-        <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">Three steps. Same task pane.</h2>
+        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.1]">
+          From CAD geometry to manufacture-ready &mdash; autonomously.
+        </h2>
       </div>
 
-      <div class="mt-12 grid gap-6 md:grid-cols-3">
-        {steps.map((s) => (
-          <div class="relative rounded-xl border border-slate-200 bg-white p-6">
-            <div class="text-sm font-mono text-accent">{s.n}</div>
-            <h3 class="mt-3 text-lg font-semibold text-slate-900">{s.title}</h3>
-            <p class="mt-2 text-slate-600 leading-relaxed">{s.body}</p>
-          </div>
-        ))}
+      <div class="space-y-20 sm:space-y-28">
+        {steps.map((s, i) => {
+          const isReversed = i % 2 === 1;
+          return (
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+              <div class={isReversed ? 'lg:order-2' : ''}>
+                <div class="text-7xl sm:text-8xl font-semibold text-accent tracking-tight leading-none">{s.n}</div>
+                <h3 class="mt-5 text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">{s.title}</h3>
+                <p class="mt-4 text-lg text-slate-600 leading-relaxed max-w-xl">{s.body}</p>
+              </div>
+              <div class={isReversed ? 'lg:order-1' : ''}>
+                <div class="relative">
+                  <div class="absolute -inset-4 sm:-inset-6 rounded-2xl bg-gradient-to-br from-amber-300/70 via-amber-100/40 to-transparent blur-xl" aria-hidden="true"></div>
+                  <div class="relative rounded-xl border border-slate-900/10 shadow-md overflow-hidden aspect-[4/3]" style="background-color: #0F172A;">
+                    <img src={`${base}${s.title.toLowerCase()}.png`} alt={`${s.title} step screenshot`} class="absolute inset-0 h-full w-full object-cover object-right" loading="lazy" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
-    </div>
-  </section>
-
-  <!-- Roadmap -->
-  <section class="mx-auto max-w-content px-6 py-20 sm:py-24">
-    <div class="grid md:grid-cols-12 gap-10 items-start">
-      <div class="md:col-span-4">
-        <p class="text-sm font-medium text-accent uppercase tracking-wider">Where it&rsquo;s going</p>
-        <h2 class="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">Roadmap</h2>
-      </div>
-      <ul class="md:col-span-8 space-y-4 text-lg text-slate-700">
-        <li class="flex items-start gap-3">
-          <span class="mt-2 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0"></span>
-          Sheet metal today
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
-          CNC, casting, injection molding next
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
-          Multi-CAD: Onshape, Inventor, Fusion
-        </li>
-        <li class="flex items-start gap-3">
-          <span class="mt-2 h-1.5 w-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
-          Assembly-level DFMA: parts-count, fastener consolidation, mate analysis
-        </li>
-      </ul>
     </div>
   </section>
 
   <!-- Final CTA -->
   <section class="border-t border-slate-100">
     <div class="mx-auto max-w-content px-6 py-20 sm:py-24">
-      <div class="rounded-2xl bg-gradient-to-br from-blue-50 via-white to-slate-50 border border-slate-200 px-8 py-14 sm:px-14 sm:py-20 text-center">
+      <div class="rounded-2xl bg-gradient-to-br from-amber-50 via-white to-slate-50 border border-slate-200 px-8 py-14 sm:px-14 sm:py-20 text-center">
         <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight">Try it on a part this week.</h2>
         <p class="mt-4 text-lg text-slate-600 max-w-xl mx-auto">
           We&rsquo;re onboarding a small group of design engineers running SolidWorks 2020+. Reach out and we&rsquo;ll send install instructions.
@@ -247,10 +204,9 @@ const steps = [
   <!-- Footer -->
   <footer class="border-t border-slate-100">
     <div class="mx-auto max-w-content px-6 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-slate-500">
-      <div class="flex items-center gap-2">
-        <span class="inline-block h-4 w-4 rounded bg-accent" aria-hidden="true"></span>
-        <span class="font-medium text-slate-700">DFMA Buddy</span>
-        <span class="ml-2">&copy; {new Date().getFullYear()}</span>
+      <div class="flex items-center gap-3">
+        <img src={`${base}logo.png`} alt="FabReady" class="h-6 w-auto" width="1172" height="296" />
+        <span>&copy; {new Date().getFullYear()}</span>
       </div>
       <div class="flex items-center gap-6">
         <a href={repoHref} target="_blank" rel="noopener" class="hover:text-slate-700 inline-flex items-center gap-1.5">

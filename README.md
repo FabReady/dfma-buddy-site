@@ -1,6 +1,6 @@
-# DFMA Buddy — Landing Page
+# FabReady — Landing Page
 
-Static marketing site for **DFMA Buddy**, a SOLIDWORKS add-in that catches and auto-fixes manufacturability issues while engineers are still designing. Built with Astro + Tailwind CSS, deployable to Vercel as a zero-config static site.
+Static marketing site for **FabReady**, a SOLIDWORKS add-in that catches and auto-fixes manufacturability issues while engineers are still designing. Built with Astro + Tailwind CSS, deployable to Vercel as a zero-config static site.
 
 ## Install
 
